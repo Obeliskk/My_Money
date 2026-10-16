@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resumen semanal | GastosLocal</title>
+    <script>
+        (() => {
+            const saved = localStorage.getItem('gastoslocal-theme');
+            if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.dataset.theme = 'dark';
+            }
+        })();
+    </script>
+    <link rel="stylesheet" href="http://127.0.0.1:8000/css/app.css">
+</head>
+<body>
+    <main class="shell">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">CONTROL PERSONAL</p>
+                <h1>GastosLocal</h1>
+            </div>
+            <div class="topbar-actions">
+                <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Activar modo noche" aria-pressed="false">
+                    <span class="theme-icon">☾</span><span class="theme-label">Modo noche</span>
+                </button>
+                <span class="local-pill">● Solo en tu PC</span>
+            </div>
+        </header>
+                                <section class="intro">
+        <div>
+            <p class="eyebrow">CONTROL PERSONAL</p>
+            <h2>Resumen semanal</h2>
+            <p class="muted">Organiza tus finanzas con información clara y accionable.</p>
+        </div>
+                    <form method="GET" class="month-picker">
+                <input type="hidden" name="section" value="weekly">
+                <label for="week">Semana desde</label>
+                <input id="week" name="week" type="date" value="2026-09-21" onchange="this.form.submit()">
+            </form>
+            </section>
+
+    <nav class="module-nav" aria-label="Módulos de GastosLocal">
+                    <a class="active" href="http://127.0.0.1:8000?section=weekly&amp;month=2026-09&amp;week=2026-09-21">Resumen semanal</a>
+                    <a class="" href="http://127.0.0.1:8000?section=categories&amp;month=2026-09&amp;week=2026-09-21">Crear una etiqueta</a>
+                    <a class="" href="http://127.0.0.1:8000?section=debts&amp;month=2026-09&amp;week=2026-09-21">Deudas y cobros</a>
+                    <a class="" href="http://127.0.0.1:8000?section=goal&amp;month=2026-09&amp;week=2026-09-21">Fijar meta</a>
+                    <a class="" href="http://127.0.0.1:8000?section=history&amp;month=2026-09&amp;week=2026-09-21">Historial de gastos del mes</a>
+            </nav>
+
+            <section class="kpi-grid" aria-label="Indicadores semanales">
+            <article class="kpi-card"><span>Ingresos de la semana</span><strong>&dollar;132.120</strong><small>21/09 al 27/09/2026</small></article>
+            <article class="kpi-card"><span>Gastos de la semana</span><strong>&dollar;155.530</strong><small>Consumo registrado</small></article>
+            <article class="kpi-card accent"><span>Disponible</span><strong>&dollar;0</strong><small>0% de tus ingresos</small></article>
+            <article class="kpi-card"><span>Movimientos</span><strong>15</strong><small>Durante esta semana</small></article>
+        </section>
+
+        <section class="content-grid">
+            <article class="panel">
+                <div class="panel-heading"><div><p class="eyebrow">DISTRIBUCIÓN</p><h3>Gastos por etiqueta</h3></div></div>
+                                                        <div class="category-row"><div class="category-label"><span>Regalos</span><strong>&dollar;73.100</strong></div><div class="bar"><i style="width: 47.000578666495%"></i></div></div>
+                                                        <div class="category-row"><div class="category-label"><span>Ocio</span><strong>&dollar;30.000</strong></div><div class="bar"><i style="width: 19.288883173664%"></i></div></div>
+                                                        <div class="category-row"><div class="category-label"><span>Servicios</span><strong>&dollar;24.600</strong></div><div class="bar"><i style="width: 15.816884202405%"></i></div></div>
+                                                        <div class="category-row"><div class="category-label"><span>Transporte</span><strong>&dollar;21.700</strong></div><div class="bar"><i style="width: 13.952292162284%"></i></div></div>
+                                                        <div class="category-row"><div class="category-label"><span>Alimentación</span><strong>&dollar;6.130</strong></div><div class="bar"><i style="width: 3.9413617951521%"></i></div></div>
+                            </article>
+            <article class="panel">
+                <div class="panel-heading"><div><p class="eyebrow">MOVIMIENTOS</p><h3>Actividad reciente</h3></div></div>
+                                    <div class="table-wrap"><table><thead><tr><th>Fecha</th><th>Detalle</th><th class="right">Monto</th></tr></thead><tbody>
+                                            <tr><td>25/09</td><td>Monster Dorada Santa Isabel</td><td class="right amount expense">-&dollar;1.850</td></tr>
+                                            <tr><td>25/09</td><td>Monster Blanca Castaño</td><td class="right amount expense">-&dollar;2.290</td></tr>
+                                            <tr><td>25/09</td><td>Lego Bananya Calicó para mi Amore</td><td class="right amount expense">-&dollar;12.000</td></tr>
+                                            <tr><td>25/09</td><td>ChatGTP</td><td class="right amount income">+&dollar;12.120</td></tr>
+                                            <tr><td>25/09</td><td>Amiibo King Dedede</td><td class="right amount expense">-&dollar;30.000</td></tr>
+                                            <tr><td>25/09</td><td>Regalo del Kitty</td><td class="right amount income">+&dollar;20.000</td></tr>
+                                            <tr><td>25/09</td><td>Regalos de mis papás</td><td class="right amount income">+&dollar;100.000</td></tr>
+                                            <tr><td>24/09</td><td>ChatGTP</td><td class="right amount expense">-&dollar;20.200</td></tr>
+                                        </tbody></table></div>
+                            </article>
+        </section>
+    </main>
+    <script>
+        (() => {
+            const root = document.documentElement;
+            const button = document.getElementById('theme-toggle');
+            if (!button) return;
+            const setTheme = (dark, persist = true) => {
+                root.dataset.theme = dark ? 'dark' : 'light';
+                button.setAttribute('aria-pressed', dark ? 'true' : 'false');
+                button.setAttribute('aria-label', dark ? 'Activar modo claro' : 'Activar modo noche');
+                button.innerHTML = dark
+                    ? '<span class="theme-icon">☀</span><span class="theme-label">Modo claro</span>'
+                    : '<span class="theme-icon">☾</span><span class="theme-label">Modo noche</span>';
+                if (persist) localStorage.setItem('gastoslocal-theme', dark ? 'dark' : 'light');
+            };
+            setTheme(root.dataset.theme === 'dark', false);
+            button.addEventListener('click', () => setTheme(root.dataset.theme !== 'dark'));
+        })();
+    </script>
+</body>
+</html>

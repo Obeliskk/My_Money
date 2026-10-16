@@ -1,0 +1,10 @@
+HTTP/1.1 200 OK
+Host: 127.0.0.1:8000
+Connection: close
+X-Powered-By: PHP/8.3.33
+Content-Type: text/html; charset=utf-8
+Cache-Control: no-cache, private
+Date: Sun, 27 Sep 2026 05:48:03 GMT
+Set-Cookie: XSRF-TOKEN=eyJpdiI6IlhoM2F1c2d5MEdKYVlvL3dvK1JDbEE9PSIsInZhbHVlIjoiL2FmcHpPVitKVjhNcmUrLzR1NlA5K1kyVTVvb1Y5OXdTZWRzY2N6NWMza0ZXdEZPZ2xLbllxTFRUZmQ2SVYxelZSRkl6cWwyYmJkWC80UHNnZ2Vua3c1eXBTa05Ba0hKckU2QU1wQ2tPWG1odmp1TXlVTlE3UE1rbmVyR3E4U0ciLCJtYWMiOiJjYmFlZTJhMzQ4YWUxMWZlZGVmY2ZkMzEwYjk1ZWI0MWNlMTMwOGY4ZmU1YTRkYTBjMDU4YTgzYTVhNDQ3NzRhIiwidGFnIjoiIn0%3D; expires=Sun, 27 Sep 2026 07:48:04 GMT; Max-Age=7200; path=/; samesite=lax
+Set-Cookie: gastoslocal_session=eyJpdiI6Illwdnd0Sjd4S0plQTYwSUpKZlNXOUE9PSIsInZhbHVlIjoibVd5UStIM0FhQnkrSkdsdGNwcllxS2JFUHhlS0FJdVZ5QzRMUisvWjdhcUVCV0NCSzN0RzVCT0xBQktoTTgra0UrcWtacEJEUGZFZHZGdmlhZlVSZWVFVnNhRjlzVCtVNm4rdWt3UFVwSFFFeDFUQWdydG5odnFUK05TMDg5WUUiLCJtYWMiOiJiMjcyZDE5MDhjMzcyZDhiZGI2NDQ5ZjAwOWQ2MWMwMzJlMjM2MzQ1Zjk2YzE3OWRkYTQwMGY2YTk2M2FhYWU5IiwidGFnIjoiIn0%3D; expires=Sun, 27 Sep 2026 07:48:04 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+

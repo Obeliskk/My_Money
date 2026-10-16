@@ -1,0 +1,27 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('movements', function (Blueprint $table): void {
+            $table->id();
+            $table->string('type', 20);
+            $table->decimal('amount', 12, 2);
+            $table->string('category', 80);
+            $table->string('description')->nullable();
+            $table->date('movement_date');
+            $table->timestamps();
+            $table->index(['movement_date', 'type']);
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('movements');
+    }
+};

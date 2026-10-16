@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fijar meta | GastosLocal</title>
+    <script>
+        (() => {
+            const saved = localStorage.getItem('gastoslocal-theme');
+            if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.dataset.theme = 'dark';
+            }
+        })();
+    </script>
+    <link rel="stylesheet" href="http://127.0.0.1:8000/css/app.css">
+</head>
+<body>
+    <main class="shell">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">CONTROL PERSONAL</p>
+                <h1>GastosLocal</h1>
+            </div>
+            <div class="topbar-actions">
+                <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Activar modo noche" aria-pressed="false">
+                    <span class="theme-icon">☾</span><span class="theme-label">Modo noche</span>
+                </button>
+                <span class="local-pill">● Solo en tu PC</span>
+            </div>
+        </header>
+                                <section class="intro">
+        <div>
+            <p class="eyebrow">CONTROL PERSONAL</p>
+            <h2>Fijar meta</h2>
+            <p class="muted">Organiza tus finanzas con información clara y accionable.</p>
+        </div>
+                    <form method="GET" class="month-picker">
+                <input type="hidden" name="section" value="goal">
+                <label for="month">Mes</label>
+                <input id="month" name="month" type="month" value="2026-09" onchange="this.form.submit()">
+            </form>
+            </section>
+
+    <nav class="module-nav" aria-label="Módulos de GastosLocal">
+                    <a class="" href="http://127.0.0.1:8000?section=weekly&amp;month=2026-09&amp;week=2026-09-21">Resumen semanal</a>
+                    <a class="" href="http://127.0.0.1:8000?section=categories&amp;month=2026-09&amp;week=2026-09-21">Crear una etiqueta</a>
+                    <a class="" href="http://127.0.0.1:8000?section=debts&amp;month=2026-09&amp;week=2026-09-21">Deudas y cobros</a>
+                    <a class="active" href="http://127.0.0.1:8000?section=goal&amp;month=2026-09&amp;week=2026-09-21">Fijar meta</a>
+                    <a class="" href="http://127.0.0.1:8000?section=history&amp;month=2026-09&amp;week=2026-09-21">Historial de gastos del mes</a>
+            </nav>
+
+            <section class="panel module-panel">
+            <div class="panel-heading"><div><p class="eyebrow">PLANIFICACIÓN</p><h3>Meta de ahorro para 2026-09</h3></div><strong class="goal-percent">100%</strong></div>
+            <div class="goal-track"><i style="width: 100%"></i></div>
+            <p class="muted goal-copy">Has apartado &dollar;192.420 de una meta de &dollar;100.000.</p>
+            <form method="POST" action="http://127.0.0.1:8000/meta-ahorro" class="goal-form">
+                <input type="hidden" name="_token" value="HH0mf9iEEZKLInVVZpXvH1jSFe7VMaiRIlX9tLNb" autocomplete="off">                <input type="hidden" name="month" value="2026-09">
+                <label>Monto objetivo<input name="target_amount" type="number" min="0" step="0.01" value="100000" required></label>
+                <button class="button primary" type="submit">Guardar meta</button>
+            </form>
+        </section>
+    </main>
+    <script>
+        (() => {
+            const root = document.documentElement;
+            const button = document.getElementById('theme-toggle');
+            if (!button) return;
+            const setTheme = (dark, persist = true) => {
+                root.dataset.theme = dark ? 'dark' : 'light';
+                button.setAttribute('aria-pressed', dark ? 'true' : 'false');
+                button.setAttribute('aria-label', dark ? 'Activar modo claro' : 'Activar modo noche');
+                button.innerHTML = dark
+                    ? '<span class="theme-icon">☀</span><span class="theme-label">Modo claro</span>'
+                    : '<span class="theme-icon">☾</span><span class="theme-label">Modo noche</span>';
+                if (persist) localStorage.setItem('gastoslocal-theme', dark ? 'dark' : 'light');
+            };
+            setTheme(root.dataset.theme === 'dark', false);
+            button.addEventListener('click', () => setTheme(root.dataset.theme !== 'dark'));
+        })();
+    </script>
+</body>
+</html>

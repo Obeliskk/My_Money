@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resumen mensual | GastosLocal</title>
+    <link rel="stylesheet" href="http://127.0.0.1:8000/css/app.css">
+</head>
+<body>
+    <main class="shell">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">CONTROL PERSONAL</p>
+                <h1>GastosLocal</h1>
+            </div>
+            <span class="local-pill">● Solo en tu PC</span>
+        </header>
+                                <section class="intro">
+        <div>
+            <p class="eyebrow">RESUMEN MENSUAL</p>
+            <h2>Tu dinero, en una sola vista.</h2>
+            <p class="muted">Registra cada movimiento y observa cuánto margen tienes para ahorrar.</p>
+        </div>
+        <form method="GET" class="month-picker">
+            <label for="month">Mes</label>
+            <input id="month" name="month" type="month" value="2026-09" onchange="this.form.submit()">
+        </form>
+    </section>
+
+    <section class="kpi-grid" aria-label="Indicadores del mes">
+        <article class="kpi-card"><span>Ingresos</span><strong>$0</strong><small>Total registrado</small></article>
+        <article class="kpi-card"><span>Gastos</span><strong>$16.245</strong><small>Consumo del mes</small></article>
+        <article class="kpi-card accent"><span>Disponible para ahorrar</span><strong>$0</strong><small>0% de tus ingresos</small></article>
+        <article class="kpi-card"><span>Meta de ahorro</span><strong>$0</strong><small>Define una meta abajo</small></article>
+    </section>
+
+    <section class="content-grid">
+        <article class="panel form-panel">
+            <div class="panel-heading"><div><p class="eyebrow">NUEVO REGISTRO</p><h3>Agregar movimiento</h3></div></div>
+            <form method="POST" action="http://127.0.0.1:8000/movimientos" class="movement-form">
+                <input type="hidden" name="_token" value="y17Baf0g6eu5kl83OM634oqW6NOwySgNp0NnNZMU" autocomplete="off">                <div class="field-row">
+                    <label>Tipo<select name="type" required><option value="expense">Gasto</option><option value="income">Ingreso</option></select></label>
+                    <label>Monto<input name="amount" type="number" min="0.01" step="0.01" placeholder="0" required></label>
+                </div>
+                <div class="field-row">
+                    <label>Etiqueta<select name="category" required><option value="Ahorro" >Ahorro</option><option value="Alimentación" >Alimentación</option><option value="Ocio" >Ocio</option><option value="Otro" >Otro</option><option value="Regalos" >Regalos</option><option value="Salud" >Salud</option><option value="Servicios" >Servicios</option><option value="Transporte" >Transporte</option><option value="Vivienda" >Vivienda</option></select></label>
+                    <label>Fecha<input name="movement_date" type="date" value="2026-09-27" required></label>
+                </div>
+                <label>Descripción <span class="optional">opcional</span><input name="description" type="text" maxlength="255" placeholder="Ej. supermercado, sueldo..."></label>
+                <button class="button primary" type="submit">Guardar movimiento</button>
+            </form>
+        </article>
+
+        <article class="panel category-panel">
+            <div class="panel-heading"><div><p class="eyebrow">DISTRIBUCIÓN</p><h3>Gastos por categoría</h3></div></div>
+                                            <div class="category-row"><div class="category-label"><span>Alimentación</span><strong>$8.855</strong></div><div class="bar"><i style="width: 54.509079716836%"></i></div></div>
+                                            <div class="category-row"><div class="category-label"><span>Ocio</span><strong>$7.390</strong></div><div class="bar"><i style="width: 45.490920283164%"></i></div></div>
+                    </article>
+    </section>
+
+   <section class="panel goal-panel">
+        <div class="panel-heading"><div><p class="eyebrow">ETIQUETAS</p><h3>Personaliza tus categorías</h3></div></div>
+        <p class="muted tags-help">Regalos ya está disponible. También puedes agregar etiquetas propias para clasificar tus movimientos.</p>
+        <form method="POST" action="http://127.0.0.1:8000/etiquetas" class="tag-form">
+            <input type="hidden" name="_token" value="y17Baf0g6eu5kl83OM634oqW6NOwySgNp0NnNZMU" autocomplete="off">            <input type="hidden" name="month" value="2026-09">
+            <input name="name" type="text" maxlength="80" placeholder="Ej. Mascotas, Viajes..." value="" required>
+            <button class="button primary" type="submit">Crear etiqueta</button>
+        </form>
+        <div class="tag-list">
+                            <span class="category-chip">Ahorro </span>
+                            <span class="category-chip">Alimentación </span>
+                            <span class="category-chip">Ocio </span>
+                            <span class="category-chip">Otro </span>
+                            <span class="category-chip">Regalos </span>
+                            <span class="category-chip">Salud </span>
+                            <span class="category-chip">Servicios </span>
+                            <span class="category-chip">Transporte </span>
+                            <span class="category-chip">Vivienda </span>
+                    </div>
+    </section>
+
+    <section class="panel goal-panel">
+        <div class="panel-heading"><div><p class="eyebrow">PLANIFICACIÓN</p><h3>Meta de ahorro para 2026-09</h3></div><strong class="goal-percent">0%</strong></div>
+        <div class="goal-track"><i style="width: 0%"></i></div>
+        <form method="POST" action="http://127.0.0.1:8000/meta-ahorro" class="goal-form">
+            <input type="hidden" name="_token" value="y17Baf0g6eu5kl83OM634oqW6NOwySgNp0NnNZMU" autocomplete="off">            <input type="hidden" name="month" value="2026-09">
+            <label>Monto objetivo<input name="target_amount" type="number" min="0" step="0.01" value="0" required></label>
+            <button class="button primary" type="submit">Guardar meta</button>
+        </form>
+    </section>
+
+    <section class="panel movements-panel">
+        <div class="panel-heading"><div><p class="eyebrow">HISTORIAL</p><h3>Movimientos de September 2026</h3></div></div>
+                    <div class="table-wrap"><table><thead><tr><th>Fecha</th><th>Descripción</th><th>Categoría</th><th>Tipo</th><th class="right">Monto</th><th></th></tr></thead><tbody>
+                            <tr><td>03/09/2026</td><td>Cafeteria de Gatitos</td><td>Alimentación</td><td><span class="tag expense">Gasto</span></td><td class="right amount expense">-$8.855</td><td class="right"><form method="POST" action="http://127.0.0.1:8000/movimientos/3" onsubmit="return confirm('¿Eliminar este movimiento?')"><input type="hidden" name="_token" value="y17Baf0g6eu5kl83OM634oqW6NOwySgNp0NnNZMU" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"><button class="delete" title="Eliminar" type="submit">×</button></form></td></tr>
+                            <tr><td>01/09/2026</td><td>Pase del Go-Fest</td><td>Ocio</td><td><span class="tag expense">Gasto</span></td><td class="right amount expense">-$7.390</td><td class="right"><form method="POST" action="http://127.0.0.1:8000/movimientos/2" onsubmit="return confirm('¿Eliminar este movimiento?')"><input type="hidden" name="_token" value="y17Baf0g6eu5kl83OM634oqW6NOwySgNp0NnNZMU" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"><button class="delete" title="Eliminar" type="submit">×</button></form></td></tr>
+                        </tbody></table></div>
+            </section>
+    </main>
+</body>
+</html>
